@@ -9,7 +9,7 @@ function CoursesSection() {
         🔥 <span className="text_yellow_gradient">Top Courses</span> 🔥
       </h2>
       <div className="courses">
-        <Card />
+        {/* <Card/> */}
         <Card />
         <Card />
         <Card />
