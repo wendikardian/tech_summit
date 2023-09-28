@@ -5,6 +5,10 @@
   padding-top: 2rem;
 }
 
+hr{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 .courses{
     display: grid;
