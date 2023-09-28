@@ -5,7 +5,7 @@ function ListCard() {
     <div className="list_card">
       <div className="info">
         <h3>Python with Django</h3>
-        <p>অনলাইন , সময়ঃ রাত ০৮ : ০০ টা</p>
+        <p>mastering Django Development using Python</p>
       </div>
     </div>
   );

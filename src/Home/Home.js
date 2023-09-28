@@ -5,7 +5,7 @@ import GreenButton from "../components/GreenButton";
 import ListCard from "../components/ListCard";
 import Navbar from "../components/Navbar";
 import hero_image from "../images/hero_image.png";
-import seminar_image from "../images/seminar_default.jpg";
+import seminar_image from "../images/images_data_coding.webp";
 import { useStateValue } from "../StateProvider";
 import "./home.css";
 
@@ -64,10 +64,10 @@ function Home() {
               <h1 className="home_title">Wendi Kardian</h1>
               <div className="seminar_list_cards hidden" ref={addToRef}>
                 <ListCard />
-                <ListCard />
+                {/* <ListCard /> */}
               </div>
               <div className="seminar_button hidden" ref={addToRef}>
-                <GreenButton link="#" text="Join Seminar" />
+                <GreenButton link="#" text="Enroll Now" />
               </div>
             </div>
             <div className="seminar_image">
