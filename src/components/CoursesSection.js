@@ -10,7 +10,7 @@ function CoursesSection() {
       </h2>
       <div className="courses">
         {/* <Card/> */}
-        <Card />
+        {/* <Card /> */}
         <Card />
         <Card />
         <Card />
