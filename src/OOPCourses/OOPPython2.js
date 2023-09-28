@@ -26,15 +26,53 @@ const OppPython2 = () => {
     token: { colorBgContainer },
   } = theme.useToken();
   const pythonCode = `
-class Mobil:
-  def __init__(self, merk, warna):
-      self.merk = merk
-      self.warna = warna
+class Mahasiswa:
+  def __init__(self, nama, usia):
+      self._nama = nama  # Atribut dengan underscore (_) adalah konvensi bahwa ini adalah atribut privat.
+      self._usia = usia
 
-# Membuat objek dari class Mobil
-mobil1 = Mobil("Toyota", "Merah")
-mobil2 = Mobil("Honda", "Biru")
+  # Metode getter untuk nama
+  @property
+  def nama(self):
+      return self._nama
+
+  # Metode setter untuk nama
+  @nama.setter
+  def nama(self, new_nama):
+      if len(new_nama) >= 3:
+          self._nama = new_nama
+      else:
+          print("Nama harus memiliki setidaknya 3 karakter.")
+
+  # Metode getter untuk usia
+  @property
+  def usia(self):
+      return self._usia
+
+  # Metode setter untuk usia
+  @usia.setter
+  def usia(self, new_usia):
+      if new_usia >= 0:
+          self._usia = new_usia
+      else:
+          print("Usia tidak boleh negatif.")
+
 `;
+const code2 = `
+# Membuat objek Mahasiswa
+mahasiswa1 = Mahasiswa("John", 20)
+
+# Mengakses atribut dengan property
+print(mahasiswa1.nama)  # Output: John
+print(mahasiswa1.usia)  # Output: 20
+
+# Mengubah nama dengan property
+mahasiswa1.nama = "Doe"  # Nama tidak akan diubah karena kurang dari 3 karakter
+
+# Mengubah usia dengan property
+mahasiswa1.usia = -1  # Usia tidak akan diubah karena negatif
+
+`
   return (
     <Layout>
       <ReusableHeader />
@@ -65,63 +103,36 @@ mobil2 = Mobil("Honda", "Biru")
                 color: "black",
               }}
             >
-              Pengantar OOP
+              Property
             </Title>
             <hr />
             <Paragraph>
-              Objek adalah salah satu konsep dasar dalam OOP yang mewakili
-              entitas konkret atau abstrak dalam program komputer. Objek
-              merupakan instance dari sebuah class, yang merupakan blueprint
-              atau cetak biru untuk menciptakan objek. Objek memiliki atribut
-              (data) dan metode (fungsi) yang mendefinisikan karakteristik dan
-              perilaku objek tersebut.
+              Property adalah salah satu fitur yang kuat dalam bahasa
+              pemrograman Python yang memungkinkan Anda untuk mengontrol akses
+              ke atribut objek. Property memungkinkan Anda untuk mendefinisikan
+              metode khusus yang akan dipanggil saat atribut objek dibaca (get)
+              atau diubah (set). Ini memberi Anda kemampuan untuk
+              mengimplementasikan logika tambahan saat mengakses atau mengubah
+              nilai atribut, seolah-olah Anda mengakses atau mengubah atribut
+              langsung, tetapi dengan kontrol tambahan.
             </Paragraph>
             <Paragraph>
-              Objek adalah salah satu konsep utama dalam paradigma pemrograman
-              berorientasi objek (OOP). Ini adalah wujud konkret atau abstrak
-              dari entitas dalam dunia nyata yang diwakili dalam program
-              komputer. Objek memiliki dua komponen utama: state (keadaan) dan
-              behavior (perilaku).
+             <b> Konsep Property: </b>
+             <br />
+            - Property digunakan untuk menghindari akses
+              langsung ke atribut objek dalam kasus di mana Anda ingin
+              menerapkan logika atau validasi tambahan. 
+              <br />- Property memungkinkan
+              Anda untuk mendefinisikan metode getter dan setter untuk atribut
+              objek. 
+              <br /> - Getter digunakan saat Anda membaca (mengakses) nilai
+              atribut, sedangkan setter digunakan saat Anda mengubah nilai
+              atribut.
             </Paragraph>
             <Image
               width={500}
-              src="https://debug.to/?qa=blob&qa_blobid=16290859093178933120"
+              src="https://miro.medium.com/v2/1*Vqdv2XFX93k9P3tYIZ57fg.gif"
             />
-            <br></br>
-            <hr />
-            <Text>
-              <b>State (Keadaan)</b>
-            </Text>{" "}
-            <Paragraph>
-              State menggambarkan atribut atau properti dari objek yang
-              mempengaruhi karakteristik atau keadaan objek tersebut.
-              Atribut-atribut ini dapat berupa data atau informasi yang terkait
-              dengan objek. Sebagai contoh: Jika kita memiliki objek "Mobil,"
-              atribut-atributnya bisa mencakup warna, merk, model, nomor plat,
-              kecepatan saat ini, jumlah penumpang, dll. Untuk objek "Pegawai,"
-              atribut-atributnya bisa mencakup nama, alamat, tanggal lahir,
-              jabatan, gaji, dll. Atribut-atribut ini memungkinkan objek untuk
-              mempertahankan informasi tentang dirinya sendiri dan berinteraksi
-              dengan objek lain dalam program.
-            </Paragraph>
-            <br></br>
-            <hr />
-            <Text>
-              <b>Behavior (Perilaku):</b>
-            </Text>{" "}
-            <Paragraph>
-              Behavior adalah kumpulan metode atau fungsi yang terkait dengan
-              objek. Metode-metode ini mendefinisikan tindakan atau operasi yang
-              dapat dilakukan oleh objek tersebut. Perilaku objek mencerminkan
-              apa yang objek dapat lakukan dalam konteks aplikasi. Contoh-contoh
-              perilaku objek termasuk: Untuk objek "Mobil," perilaku bisa
-              mencakup metode "Maju," "Mundur," "Berhenti," "Ganti Gigi," dan
-              lain-lain. Untuk objek "Pegawai," perilaku bisa mencakup metode
-              "Bekerja," "Cuti," "Perbarui Informasi Pribadi," dan sebagainya.
-              Perilaku objek didefinisikan dalam class, dan objek dari class
-              dapat menggunakan metode-metode tersebut untuk berinteraksi dengan
-              objek lain atau mengubah keadaannya sendiri.
-            </Paragraph>
             <br></br>
             <hr />
             <Text>
@@ -129,6 +140,13 @@ mobil2 = Mobil("Honda", "Biru")
             </Text>{" "}
             <SyntaxHighlighter language="python" style={vscDarkPlus}>
               {pythonCode}
+            </SyntaxHighlighter>
+            <hr />
+            <Text>
+              <b>Code Example to access Property</b>
+            </Text>{" "}
+            <SyntaxHighlighter language="python" style={vscDarkPlus}>
+              {code2}
             </SyntaxHighlighter>
           </Content>
         </Layout>

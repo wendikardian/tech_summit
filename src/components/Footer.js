@@ -31,20 +31,20 @@ function Footer() {
             <div>
               <i className="fa fa-map-marker"></i>
               <p>
-                <span>444 S. Cedros Ave</span> Solana Beach, California
+                
               </p>
             </div>
 
             <div>
               <i className="fa fa-phone"></i>
-              <p>+1.555.555.5555</p>
+              <p>+62 895422512589</p>
             </div>
 
             <div>
               <i className="fa fa-envelope"></i>
               <p>
                 <a href="mailto:techsupport@company.com">
-                  techsupport@company.com
+                  wendikardian@gmail.com
                 </a>
               </p>
             </div>
